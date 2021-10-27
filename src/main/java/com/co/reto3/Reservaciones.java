@@ -16,17 +16,12 @@ public class Reservaciones implements Serializable {
     private Date devolutionDate;
     private String status="created";
 
-    private String score; //depende el grupo
-
-    @ManyToOne
-    @JoinColumn(name= "id")
-    @JsonIgnoreProperties("reservations")
-    private Boat boat;
-
     @ManyToOne
     @JoinColumn(name = "idClient")
     @JsonIgnoreProperties({"reservations", "messages"})
     private Cliente client;
+    
+    private String score;
 
     public Integer getIdReservation() {
         return idReservation;

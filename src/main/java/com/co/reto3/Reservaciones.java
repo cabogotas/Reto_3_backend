@@ -43,10 +43,6 @@ public class Reservaciones implements Serializable {
         return score;
     }
 
-    public Boat getBoat() {
-        return boat;
-    }
-
     public Cliente getClient() {
         return client;
     }
@@ -69,10 +65,6 @@ public class Reservaciones implements Serializable {
 
     public void setScore(String score) {
         this.score = score;
-    }
-
-    public void setBoat(Boat boat) {
-        this.boat = boat;
     }
 
     public void setClient(Cliente client) {

@@ -17,10 +17,15 @@ public class Reservaciones implements Serializable {
     private String status="created";
 
     @ManyToOne
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties("reservations")
+    private Boat boat;
+
+    @ManyToOne
     @JoinColumn(name = "idClient")
     @JsonIgnoreProperties({"reservations", "messages"})
     private Cliente client;
-    
+
     private String score;
 
     public Integer getIdReservation() {
@@ -69,5 +74,13 @@ public class Reservaciones implements Serializable {
 
     public void setClient(Cliente client) {
         this.client = client;
+    }
+
+    public Boat getBoat() {
+        return boat;
+    }
+
+    public void setBoat(Boat boat) {
+        this.boat = boat;
     }
 }

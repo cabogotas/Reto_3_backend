@@ -28,12 +28,20 @@ public class Boat implements Serializable {
     private Categoria category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
-    @JsonIgnoreProperties({"bike", "client"})
+    @JsonIgnoreProperties({"boat", "client"})
     private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "boat")
     @JsonIgnoreProperties({"boat", "client"})
     private List<Reservaciones> reservations;
+
+    public List<Reservaciones> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservaciones> reservations) {
+        this.reservations = reservations;
+    }
 
     public Integer getId() {
         return id;
@@ -91,13 +99,6 @@ public class Boat implements Serializable {
         this.messages = messages;
     }
 
-    public List<Reservaciones> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservaciones> reservations) {
-        this.reservations = reservations;
-    }
 }
 
 
